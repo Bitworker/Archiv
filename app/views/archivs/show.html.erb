@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @archiv.name %>
+</p>
+
+<p>
+  <b>Kategory:</b>
+  <%= @archiv.category %>
+</p>
+
+<p>
+  <b>Bedingungen:</b>
+  <%= @archiv.terms %>
+</p>
+
+<p>
+  <b>Beispiel Link:</b>
+  <%= @archiv.exampleLink %>
+</p>
+
+<p>
+  <b>Punkte:</b>
+  <%= @archiv.points %>
+</p>
+
+
+<%= link_to 'Bearbeiten', edit_archiv_path(@archiv) %> |
+<%= link_to 'Zurück', archivs_path %>

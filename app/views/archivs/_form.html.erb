@@ -1,0 +1,36 @@
+<%= form_for @archiv do |f| %>
+  <% if @archiv.errors.any? %>
+    <div id="error_explanation">
+      <h2>Es wurden <%= @archiv.errors.count %> fehler gefunden:</h2>
+      <ul>
+      <% @archiv.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "Name" %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label "Kategory" %><br />
+    <%= f.number_field :category %>
+  </div>
+  <div class="field">
+    <%= f.label "Bedindungen" %><br />
+    <%= f.text_field :terms %>
+  </div>
+  <div class="field">
+    <%= f.label "Beispiel Link" %><br />
+    <%= f.text_field :exampleLink %>
+  </div>
+  <div class="field">
+    <%= f.label "Punkte" %><br />
+    <%= f.number_field :points %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Speichern" %>
+  </div>
+<% end %>

@@ -1,0 +1,30 @@
+<h1>Gesamte Erfolgsliste</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Kategory</th>
+    <th>Bedingungen</th>
+    <th>Beispiel Link</th>
+    <th>punkte</th>
+  </tr>
+
+<% @archivs.each do |archiv| %>
+  <tr>
+    <td><%= archiv.name %></td>
+    <td><%= archiv.category %></td>
+    <td><%= archiv.terms %></td>
+    <td><%= archiv.exampleLink %></td>
+    <td><%= archiv.points %></td>
+    <td class="admin_table_action"><%= link_to 'Anzeigen', archiv %></td>
+    <td class="admin_table_action"><%= link_to 'Bearbeiten', edit_archiv_path(archiv) %></td>
+    <td class="admin_table_action"><%= link_to 'Löschen', archiv, confirm: 'Bist du sicher?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Neuen Erfolg erstellen', new_archiv_path %><br>
+<br>
+<%= link_to 'Zurück', admin_index_path %>
