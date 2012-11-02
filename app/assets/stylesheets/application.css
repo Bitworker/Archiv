@@ -12,34 +12,46 @@
  *= require_tree .
 */
 
-
-tbody th {
-  background-color: #faebd7;
-  border: 1px solid black;
-  padding: 10px;
-  width: 100px;
+body {
+	margin: 0px;
+	font: 14px/20px verdana;
 }
 
-tbody td {
-    background-color: #dcdcdc;
-    border: 1px solid black;
-    padding: 5px;
+.main-nav-links {
+	padding-left: 10px;
+	margin-left: 20%;
 }
 
-td.admin_table_action {
-    background-color: #faebd7;
+.main-nav-links a, .main-nav-links {
+    color: white;
 }
 
-#user_nav {
-    background-color:  #dcdcdc;
+.main-nav-links a {
+	text-decoration:none;
+}
 
-    font-size: 18px;
+.main-nav {
+    background-color: black;
     padding: 10px;
+    position: fixed;
+    width: 100%;
 }
 
+.main-content {
+  	width: 60%;
+  	padding: 20px;
+  	padding-top: 60px;
+  	margin-left: 20%;
+  	font-size: 12px;
+  	border: 1px solid lightgrey;
+  	margin-bottom: 20px;
+}
 
+.logged-in-as {
+	margin-right:15px;
+}
 
-
-
-
+.active-link {
+	color: red !Important;
+}
 
