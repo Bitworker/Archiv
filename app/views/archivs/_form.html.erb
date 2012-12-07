@@ -3,7 +3,7 @@
     <div id="error_explanation">
       <h2>Es wurden <%= @archiv.errors.count %> fehler gefunden:</h2>
       <ul>
-      <% @archiv.errors.full_messages.each do |msg| %>
+      <% @archiv.errors.each do |attr, msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -15,8 +15,8 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label "Kategory" %><br />
-    <%= f.number_field :category %>
+    <%= f.label "Kategorie" %><br />
+    <%= f.select :category, options_for_select(@categories.map(&:name), :name), :prompt => "Bitte wählen" %>
   </div>
   <div class="field">
     <%= f.label "Bedindungen" %><br />

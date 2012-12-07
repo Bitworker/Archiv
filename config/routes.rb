@@ -1,28 +1,34 @@
 Erfolg::Application.routes.draw do
-
-  resources :authentications
-
-  resources :archivs
-  get "archivs/show"
-
   # OmniAuth - for FB Connect
   match '/auth/facebook/callback' => 'authentications#create'
 
 
-  devise_for :users
 
   devise_for :users do
     get '/logout' => 'devise/sessions#destroy'
-  end
-
-  devise_for :user do
     get "/login" => "devise/sessions#new"
   end
 
+
+
+  resources :user, :only => [:show]
+  match 'user/:id' => 'user#show'
+
+  resources :authentications
+  resources :archivs
+  resources :categories
+  resources :extern
+
+
+
+
+  
+
+
   # devise_for :users, :path => "usuarios", :path_names => { :sign_in => 'login', :sign_out => 'logout', :password => 'secret', :confirmation => 'verification', :unlock => 'unblock', :registration => 'register', :sign_up => 'cmon_let_me_in' }
 
-  get "home/index" # Status: Logged out / Landing Page in logged out state
-  get "user/index" # Status: Logged in / Landing Page standard user
+  get "extern/index" # Status: Logged out / Landing Page in logged out state
+  get "user/show" # Status: Logged in / Landing Page standard user
   get "admin/index" # Status: Logged in / Landing Page Admin
 
   # The priority is based upon order of creation:
@@ -74,7 +80,7 @@ Erfolg::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/indexOLD.html.
-  root :to => 'home#index'
+  root :to => 'extern#index'
 
   # See how all your routes lay out with "rake routes"
 

@@ -1,6 +1,8 @@
 class ArchivsController < ApplicationController
   before_filter :authenticate_user!
 
+  before_filter :get_categories, :only => [:create, :new, :edit] 
+
   # GET /archivs
   # GET /archivs.json
   def index
@@ -81,5 +83,11 @@ class ArchivsController < ApplicationController
       format.html { redirect_to archivs_url }
       format.json { head :no_content }
     end
+  end
+
+  protected
+
+  def get_categories
+    @categories = Category.all
   end
 end
