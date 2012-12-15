@@ -1,0 +1,17 @@
+.profil-header {
+  margin-bottom: 60px;
+  position: relative;
+
+}
+
+.profil-header img, .profil-header h1 {
+  float: left;
+}
+
+.profil-header h1 {
+  line-height: 22px;
+  position: relative;
+  top: -12px;
+  left:5px;
+  height:20px;
+}

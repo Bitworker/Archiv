@@ -1,3 +1,17 @@
-<% title "Eingeloggt" %>
+<% title "Profilseite:" %>
+<div class="profil-header">
+  <%= image_tag("http://graph.facebook.com/#{@user.username}/picture", :height => '50', :width => '50') %>
+  <h1><%= @user.first_name + ", " %> <br>
+  <%= @user.last_name %></h1>
+</div>
 
-<h1> Hallo <%= @user.email %> das ist deine Profilseite </h1>
+<hr>
+
+
+
+
+
+
+
+
+

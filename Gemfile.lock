@@ -133,6 +133,7 @@ DEPENDENCIES
   devise
   jquery-rails
   mysql2
+  oauth2
   omniauth
   omniauth-facebook
   rails (= 3.2.2)

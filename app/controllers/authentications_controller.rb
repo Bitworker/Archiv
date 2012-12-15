@@ -5,23 +5,24 @@ class AuthenticationsController < ApplicationController
 
   def create
     auth = request.env["omniauth.auth"]
-
+   
     # Try to find authentication first
     authentication = Authentication.find_by_provider_and_uid(auth['provider'], auth['uid'])
 
-    if authentication
+    if authentication && authentication.user.present?
       # Authentication found, sign the user in.
-      flash[:notice] = "Signed in successfully."
-      sign_in_and_redirect(:user, authentication.user)
+      flash[:notice] = "Erfolgreich eingeloggt."
+      sign_in authentication.user, :event => :authentication
+      # ?? needed?? @after_sign_in_url = after_sign_in_path_for(authentication.user)
+      redirect_to user_path(authentication.user)
     else
       # Authentication not found, thus a new user.
       user = User.new
       user.apply_omniauth(auth)
-      data = access_token.info
-      User.create!(:username => data.username ? data.username : data.nickname , :email => data.email, :password => Devise.friendly_token[0,20])
       if user.save(:validate => false)
-      flash[:notice] = "Account created and signed in successfully."
-      sign_in_and_redirect(:user, user)
+        flash[:notice] = "Account created and signed in successfully."
+        sign_in user, :event => :authentication
+        redirect_to user_path(user)
       else
         flash[:error] = "Error while creating a user account. Please try again."
         redirect_to root_url

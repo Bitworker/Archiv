@@ -1,29 +1,18 @@
 Erfolg::Application.routes.draw do
   # OmniAuth - for FB Connect
-  match '/auth/facebook/callback' => 'authentications#create'
-
-
+  match '/auth/:provider/callback' => 'authentications#create'
 
   devise_for :users do
     get '/logout' => 'devise/sessions#destroy'
     get "/login" => "devise/sessions#new"
   end
 
-
-
   resources :user, :only => [:show]
-  match 'user/:id' => 'user#show'
 
   resources :authentications
   resources :archivs
   resources :categories
   resources :extern
-
-
-
-
-  
-
 
   # devise_for :users, :path => "usuarios", :path_names => { :sign_in => 'login', :sign_out => 'logout', :password => 'secret', :confirmation => 'verification', :unlock => 'unblock', :registration => 'register', :sign_up => 'cmon_let_me_in' }
 
