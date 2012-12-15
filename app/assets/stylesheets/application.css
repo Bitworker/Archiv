@@ -17,59 +17,13 @@ body {
 	font: 14px/20px verdana;
 }
 
-.main-nav-links {
-	padding-left: 10px;
-	margin-left: 20%;
-}
-
-.main-nav-links a, .main-nav-links {
-    color: white;
-}
-
-.main-nav-links a {
-	text-decoration:none;
-}
-
-.main-nav {
-    background-color: black;
-    padding: 10px;
-    position: fixed;
-    width: 100%;
-    height: 20px;
-}
-
 .main-content {
-  	width: 60%;
-  	padding: 20px;
-  	padding-top: 60px;
-  	margin-left: 20%;
-  	font-size: 12px;
-  	border: 1px solid lightgrey;
-  	margin-bottom: 20px;
+    width: 60%;
+    padding: 20px;
+    padding-top: 60px;
+    margin-left: 20%;
+    font-size: 12px;
+    border: 1px solid lightgrey;
+    margin-bottom: 20px;
+    min-height: 900px
 }
-
-.logged-in-as {
-	margin-right:15px;
-}
-
-.active-link {
-	color: red !Important;
-}
-
-.flash {
-  top: 40px;
-  padding: 10px;
-  position: relative;
-  text-align: center;
-  height: 17px;
-  border-bottom: 3px solid black;
-}
-
-.error {
-  background: red;
-}
-
-.notice {
-  background: #FFF6BF;
-}
-

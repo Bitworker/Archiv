@@ -1,0 +1,29 @@
+.main-nav-links {
+  padding-left: 10px;
+  margin-left: 20%;
+}
+
+.main-nav-links a, .main-nav-links {
+  color: white;
+}
+
+.main-nav-links a {
+  text-decoration:none;
+}
+
+.main-nav {
+  background-color: black;
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+  height: 20px;
+  z-index: 1;
+}
+
+.logged-in-as {
+  margin-right:15px;
+}
+
+.active-link {
+  color: red !Important;
+}
