@@ -2,7 +2,9 @@ class ArchivsController < ApplicationController
   before_filter :authenticate_user!
 
   before_filter :get_categories, :only => [:create, :new, :edit] 
-  before_filter :get_user_archivment_status, :only => [:show] 
+  before_filter :get_userarchivment, :only => [:show, :update_vote] 
+  before_filter :get_user_archivment_status, :only => [:show, :update_vote] 
+  before_filter :build_vote_update, :only => [:show, :update_vote] 
 
   # GET /archivs
   # GET /archivs.json
@@ -86,17 +88,54 @@ class ArchivsController < ApplicationController
     end
   end
 
+  def update_vote
+    if params[:commit] == "Upvote"
+      @archivment_upvote = @archivment_upvote + 1
+
+      if @userarchivment.update_attributes(:upvote => @archivment_upvote)
+        respond_to do |format|
+          format.html
+          format.js
+        end
+      end
+    end
+
+    if params[:commit] == "Downvote"
+      @archivment_downvote = @archivment_downvote + 1
+
+      if @userarchivment.update_attributes(:downvote => @archivment_downvote)
+        respond_to do |format|
+          format.html
+          format.js
+        end
+      end
+    end
+  end
+
   protected
 
   def get_categories
     @categories = Category.all
   end
 
+  def get_userarchivment
+    @userarchivment = Userarchivment.find_by_user_id_and_archiv_id(current_user.id,params[:id])
+  end
+
   def get_user_archivment_status
     begin
-      @user_archivment_status = User.find(current_user).archivs.find(params[:id])
-    rescue ActiveRecord::RecordNotFound
+      @archivment_upvote   = @userarchivment.upvote
+      @archivment_downvote = @userarchivment.downvote
+      @user_archivment_status = true
+    rescue NoMethodError
       @user_archivment_status = false
     end
+
+
   end
+
+  def build_vote_update
+    @vote = Userarchivment.new
+  end
+
 end

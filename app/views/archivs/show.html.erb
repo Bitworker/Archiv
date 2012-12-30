@@ -6,33 +6,39 @@
   <% end %> 
 </div>
 
-<p id="notice"><%= notice %></p>
+<div class="archiv-basics">
+  <p>
+    <b>Name:</b>
+    <%= @archiv.name %>
+  </p>
 
-<p>
-  <b>Name:</b>
-  <%= @archiv.name %>
-</p>
+  <p>
+    <b>Kategorie:</b>
+    <%= @archiv.category %>
+  </p>
 
-<p>
-  <b>Kategory:</b>
-  <%= @archiv.category %>
-</p>
+  <p>
+    <b>Bedingungen:</b>
+    <%= @archiv.terms %>
+  </p>
 
-<p>
-  <b>Bedingungen:</b>
-  <%= @archiv.terms %>
-</p>
+  <p>
+    <b>Beispiel Link:</b>
+    <%= @archiv.example_link %>
+  </p>
 
-<p>
-  <b>Beispiel Link:</b>
-  <%= @archiv.example_link %>
-</p>
+  <p>
+    <b>Punkte:</b>
+    <%= @archiv.points %>
+  </p>
+</div>
 
-<p>
-  <b>Punkte:</b>
-  <%= @archiv.points %>
-</p>
+<% if @user_archivment_status %>
+  <div id="raitings">
+    <%= render :partial => "archivs/ratings", :locals => { :vote => @vote } %>
+  </div>
+<% end %>
+
+<br>
 
 <%= link_to 'Zurück', user_path(current_user) %>
-
-

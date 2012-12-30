@@ -10,7 +10,12 @@ Erfolg::Application.routes.draw do
   resources :user, :only => [:show]
 
   resources :authentications
-  resources :archivs
+  resources :archivs, :only => [:index, :show, :new,  :edit, :create, :update, :destroy] do
+    member do
+      post :update_vote
+    end
+  end
+
   resources :categories
   resources :extern
 

@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :authentications, :dependent => :delete_all
-  has_and_belongs_to_many :archivs
+  has_many :userarchivments
+  has_many :archivs, :through => :userarchivments
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,

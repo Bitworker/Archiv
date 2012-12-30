@@ -1,5 +1,6 @@
 class Archiv < ActiveRecord::Base
-  has_and_belongs_to_many :users
+  has_many :userarchivments
+  has_many :users, :through => :userarchivments
 
   validates :name, 
             :presence => {:message => 'Name muss vorhanden sein.'},
