@@ -1,0 +1,7 @@
+<div class="profil-archivments-recommended">
+  <h3>Hast du schon diese Erfolge gesehen?</h3>
+  
+  <% @archivments_recommended.each do |archivment| %>
+    <%= link_to archivment.name, archivment %> <br>  
+  <% end %>
+</div>

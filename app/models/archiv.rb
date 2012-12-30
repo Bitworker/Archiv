@@ -1,5 +1,5 @@
 class Archiv < ActiveRecord::Base
-
+  has_and_belongs_to_many :users
 
   validates :name, 
             :presence => {:message => 'Name muss vorhanden sein.'},
@@ -11,5 +11,5 @@ class Archiv < ActiveRecord::Base
   
   validates :points,
             :presence => {:message => 'Punkte muessen vergeben sein.'}
-  
+ 
 end

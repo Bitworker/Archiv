@@ -1,3 +1,11 @@
+<div>
+  <% if @user_archivment_status %>
+    <h2>Du hast diesen Erfolg abgeschlossen.</h2>
+  <% else %>
+    <h2>Du kannst diesen Erfolg noch verdienen.</h2>
+  <% end %> 
+</div>
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -17,7 +25,7 @@
 
 <p>
   <b>Beispiel Link:</b>
-  <%= @archiv.exampleLink %>
+  <%= @archiv.example_link %>
 </p>
 
 <p>
@@ -25,5 +33,6 @@
   <%= @archiv.points %>
 </p>
 
-<%= link_to 'Bearbeiten', edit_archiv_path(@archiv) %> |
-<%= link_to 'Zurück', archivs_path %>
+<%= link_to 'Zurück', user_path(current_user) %>
+
+

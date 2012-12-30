@@ -1,4 +1,5 @@
 <% title "Profilseite" %>
+
 <div class="profil-header">
   <%= image_tag("http://graph.facebook.com/#{@user.username}/picture", :height => '50', :width => '50') %>
   <h1><%= @user.first_name + ", " %> <br>
@@ -6,3 +7,22 @@
 </div>
 
 <hr>
+
+<div class="profil">
+	<h2>Punkte: <%= @points %></h2>
+</div>
+
+<div class="profil-footer">
+</div>
+
+<hr>
+
+<div class="profil-archivments">
+  <%= render :partial => "user/archiv_done" %>
+  <%= render :partial => "user/archiv_recommended" %>
+</div>
+
+
+
+
+

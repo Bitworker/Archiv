@@ -2,6 +2,7 @@ class ArchivsController < ApplicationController
   before_filter :authenticate_user!
 
   before_filter :get_categories, :only => [:create, :new, :edit] 
+  before_filter :get_user_archivment_status, :only => [:show] 
 
   # GET /archivs
   # GET /archivs.json
@@ -89,5 +90,13 @@ class ArchivsController < ApplicationController
 
   def get_categories
     @categories = Category.all
+  end
+
+  def get_user_archivment_status
+    begin
+      @user_archivment_status = User.find(current_user).archivs.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      @user_archivment_status = false
+    end
   end
 end
