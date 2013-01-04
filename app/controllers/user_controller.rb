@@ -13,15 +13,16 @@ class UserController < ApplicationController
   end
 
   def find_archivments
-    user_archivments = User.find(current_user).archivs
+    userarchivments = User.find(current_user).archivs
 
-    @points = user_archivments.sum(:points)
-    @archviments_done = user_archivments.limit(5)
-    
-    if user_archivments.empty?
+    if userarchivments.empty?
+      @points = 0
       @archivments_recommended = Archiv.first(5)
     else
-      @archivments_recommended = Archiv.find(:all, :limit => 5, :conditions => ["archivs.id NOT IN (?)", user_archivments])
+      @points = userarchivments.joins(:userarchivments).where('userarchivments.vote_success' => true).sum(:points)
+      @archivments_recommended = Archiv.find(:all, :limit => 5, :conditions => ["archivs.id NOT IN (?)", userarchivments])
+      @archivments_need_vote = userarchivments.joins(:userarchivments).where('userarchivments.vote_success' => false).limit(5)
+      @archivments_done = userarchivments.joins(:userarchivments).where('userarchivments.vote_success' => true).limit(5)
     end
   end
 end

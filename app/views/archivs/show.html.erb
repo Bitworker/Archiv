@@ -1,8 +1,10 @@
 <div>
-  <% if @user_archivment_status %>
+  <% if @user_archivment_status == "done" %>
     <h2>Du hast diesen Erfolg abgeschlossen.</h2>
-  <% else %>
-    <h2>Du kannst diesen Erfolg noch verdienen.</h2>
+  <% elsif @user_archivment_status == "recommended" %>
+    <h2>Du kannst diesen Erfolg noch abschließen.</h2>
+  <% elsif @user_archivment_status == "need_vote" %>
+    <h2>Die Abstimmung, ob du diesen Erfolg abgeschlossen hast, läuft.</h2>
   <% end %> 
 </div>
 
@@ -33,7 +35,7 @@
   </p>
 </div>
 
-<% if @user_archivment_status %>
+<% if @user_archivment_status == "need_vote" || @user_archivment_status == "done" %>
   <div id="raitings">
     <%= render :partial => "archivs/ratings", :locals => { :vote => @vote } %>
   </div>
@@ -41,4 +43,7 @@
 
 <br>
 
+<% if @user_archivment_status == "recommended" %>
+  <%= link_to 'Vote-Freischaltung für diesen Erfolg', create_userarchivment_archiv_path %><br>
+<% end %>
 <%= link_to 'Zurück', user_path(current_user) %>

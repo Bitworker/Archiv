@@ -88,6 +88,16 @@ class ArchivsController < ApplicationController
     end
   end
 
+  def create_userarchivment
+    @new_userarchivment = Userarchivment.new
+    @new_userarchivment.user_id = current_user.id
+    @new_userarchivment.archiv_id = params[:id]
+    if @new_userarchivment.save
+      flash[:notice] = "Dieser Erfolg steht nun zur Abstimmung zur bereit!"
+      redirect_to archiv_path(@new_userarchivment.archiv_id)
+    end
+  end
+
   def update_vote
     if params[:commit] == "Upvote"
       @archivment_upvote = @archivment_upvote + 1
@@ -110,6 +120,8 @@ class ArchivsController < ApplicationController
         end
       end
     end
+
+    @userarchivment.update_attributes(:vote_success => vote_success(@userarchivment))
   end
 
   protected
@@ -126,16 +138,25 @@ class ArchivsController < ApplicationController
     begin
       @archivment_upvote   = @userarchivment.upvote
       @archivment_downvote = @userarchivment.downvote
-      @user_archivment_status = true
+      if @userarchivment.vote_success
+        @user_archivment_status = "done"
+      else
+        @user_archivment_status = "need_vote"
+      end
     rescue NoMethodError
-      @user_archivment_status = false
+      @user_archivment_status = "recommended"
     end
-
-
   end
 
   def build_vote_update
     @vote = Userarchivment.new
   end
 
+  def vote_success(userarchivment)
+    if (userarchivment.upvote > 0 && userarchivment.downvote == 0) || ((userarchivment.upvote / userarchivment.downvote) >= 5)
+      true
+    else
+      false
+    end
+  end
 end

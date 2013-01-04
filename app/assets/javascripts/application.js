@@ -13,9 +13,3 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
-
- $(document).ready(function() {
-  $('#update_vote_form').ajaxForm({
-    dataType: 'script'
-  });
-});

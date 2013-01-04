@@ -22,7 +22,11 @@
   border: 1px solid lightgrey;
 }
 
-.profil-archivments-done, .profil-archivments-recommended {
+.profil-archivments-done, .profil-archivments-recommended, .profil-archivments-need-vote {
   float:left;
-  width: 50%;
+  width: 32%;
+}
+
+.profil-archivments-recommended, .profil-archivments-need-vote {
+  margin-left:2%;
 }

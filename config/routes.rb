@@ -13,6 +13,7 @@ Erfolg::Application.routes.draw do
   resources :archivs, :only => [:index, :show, :new,  :edit, :create, :update, :destroy] do
     member do
       post :update_vote
+      get :create_userarchivment
     end
   end
 

@@ -1,7 +1,10 @@
 <div class="profil-archivments-done">
-  <h3>Deine erfüllten Erfolge</h3>
+  <h3>Deine abgeschlossenen Erfolge</h3>
 
-  <% @archviments_done.each do |archivment| %>
-    <%= link_to archivment.name, archivment %> <br>  
+  <% if @archivments_done.present? %>
+    <% @archivments_done.each do |archivment| %>
+      <%= link_to archivment.name, archivment %> <br>  
+    <% end %>
   <% end %>
+
 </div>
