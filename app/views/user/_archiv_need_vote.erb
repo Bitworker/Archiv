@@ -2,8 +2,8 @@
   <h3>Deine ausstehenden Votes</h3>
 
   <% if @archivments_need_vote.present? %>
-    <% @archivments_need_vote.each do |archivment|  %>
-      <%= link_to archivment.name, archivment %> <br>  
+    <% @archivments_need_vote.each do |userarchivment|  %>
+      <%= link_to userarchivment.archiv.name, userarchivment.archiv %> <br>  
     <% end %>
   <% end %>
 

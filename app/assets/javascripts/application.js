@@ -13,3 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(document).ready(function() {
+
+  // Userarchivment Image Upload form /archiv/show	
+  $('#update_image_form').ajaxForm({
+    dataType: 'script'
+  });
+});

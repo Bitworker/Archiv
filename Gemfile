@@ -1,15 +1,24 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.2'
+gem 'rails', '3.2.11'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2'
-gem 'devise'
-gem 'omniauth'
-gem 'omniauth-facebook'
-gem 'oauth2' # TESTEST
+# Database
+  gem 'mysql2'
+
+# User Management
+  gem 'devise'
+
+# User Authentication
+  gem 'omniauth'
+  gem 'omniauth-facebook'
+  gem 'oauth2' # needed?
+
+# Image Uploading
+  gem "rmagick"
+  gem "carrierwave"
 
 # Gems used only for assets and not required
 # in production environments by default.

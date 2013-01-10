@@ -1,0 +1,3 @@
+$('div.archiv-image-upload').hide();
+$('.main-nav').after('<div class="flash notice">Dein Bild wurde hochgeladen</div>')
+$('#archiv-image').html('<p><b>Dein Bild zum Erfolg:</b><div><%=escape_javascript(image_tag @userarchivment.image_url(:thumb))%></div></p>')

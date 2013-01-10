@@ -2,7 +2,7 @@ class ArchivsController < ApplicationController
   before_filter :authenticate_user!
 
   before_filter :get_categories, :only => [:create, :new, :edit] 
-  before_filter :get_userarchivment, :only => [:show, :update_vote] 
+  before_filter :get_userarchivment, :only => [:show, :update_vote, :update_userarchivment] 
   before_filter :get_user_archivment_status, :only => [:show, :update_vote] 
   before_filter :build_vote_update, :only => [:show, :update_vote] 
 
@@ -51,7 +51,7 @@ class ArchivsController < ApplicationController
 
     respond_to do |format|
       if @archiv.save
-        format.html { redirect_to @archiv, notice: 'Erfolg wurde erfolgreich Erstellt.' }
+        format.html { redirect_to @archiv, notice: 'Erfolg wurde Erstellt.' }
         format.json { render json: @archiv, status: :created, location: @archiv }
       else
         format.html { render action: "new" }
@@ -67,7 +67,7 @@ class ArchivsController < ApplicationController
 
     respond_to do |format|
       if @archiv.update_attributes(params[:archiv])
-        format.html { redirect_to @archiv, notice: 'Erfolg wurde erfolgreich bearbeitet.' }
+        format.html { redirect_to @archiv, notice: 'Erfolg wurde bearbeitet.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -95,6 +95,16 @@ class ArchivsController < ApplicationController
     if @new_userarchivment.save
       flash[:notice] = "Dieser Erfolg steht nun zur Abstimmung zur bereit!"
       redirect_to archiv_path(@new_userarchivment.archiv_id)
+    end
+  end
+
+  def update_userarchivment
+    @archiv = Archiv.find(params[:id])
+    if @userarchivment.update_attributes(params[:userarchivment])
+      respond_to do |format|
+        format.html
+        format.js
+      end
     end
   end
 

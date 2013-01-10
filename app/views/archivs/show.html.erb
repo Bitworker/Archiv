@@ -33,7 +33,25 @@
     <b>Punkte:</b>
     <%= @archiv.points %>
   </p>
+
+  <div id="archiv-image">
+    <% if @userarchivment && @userarchivment.image.present? %>
+      <p>
+        <b>Dein Bild zum Erfolg:</b>
+        <div>
+          <%= image_tag @userarchivment.image_url(:thumb) %>
+        </div>
+      </p>
+    <% end %>
+  </div>
+
 </div>
+
+<% if @user_archivment_status == "need_vote" && @userarchivment.image.blank? %>
+  <div class="archiv-image-upload">
+    <%= render :partial => "archivs/image_upload", :locals => { :userarchivment => @userarchivment } %>
+  </div>
+<% end %>
 
 <% if @user_archivment_status == "need_vote" || @user_archivment_status == "done" %>
   <div id="raitings">

@@ -3,7 +3,8 @@
     <div class="main-nav-links">
       <%= link_to "User Profil", user_path(current_user), :class => is_active_link?("user") %> | 
       <%= link_to "Willkommen", extern_index_path, :class => is_active_link?("extern") %> | 
-      <%= link_to "Adminarea", admin_index_path, :class => is_active_link?("admin") %>
+      <%= link_to "Adminarea", admin_index_path, :class => is_active_link?("admin") %> | 
+      <%= link_to "Stream", stream_index_path, :class => is_active_link?("stream") %>
       <div class="fR logged-in-as">
         Eingeloggt als <%= current_user.email %>. Das bist nicht du? <%= link_to "Logout", destroy_user_session_path, :method => :delete, :class => "f-bold" %>
       </div>

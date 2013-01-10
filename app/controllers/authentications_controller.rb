@@ -20,11 +20,11 @@ class AuthenticationsController < ApplicationController
       user = User.new
       user.apply_omniauth(auth)
       if user.save(:validate => false)
-        flash[:notice] = "Account created and signed in successfully."
+        flash[:notice] = "Account wurde erstellt, du bist nun eingeloggt."
         sign_in user, :event => :authentication
         redirect_to user_path(user)
       else
-        flash[:error] = "Error while creating a user account. Please try again."
+        flash[:error] = "Fehler beim Account erstellen. Bitte erneut versuchen."
         redirect_to root_url
       end
     end
@@ -33,7 +33,7 @@ class AuthenticationsController < ApplicationController
   def destroy
     @authentication = current_user.authentications.find(params[:id])
     @authentication.destroy
-    flash[:notice] = "Successfully destroyed authentication."
+    flash[:notice] = "Erfolgreich geloescht."
     redirect_to authentications_url
   end
 end

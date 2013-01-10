@@ -2,8 +2,8 @@
   <h3>Deine abgeschlossenen Erfolge</h3>
 
   <% if @archivments_done.present? %>
-    <% @archivments_done.each do |archivment| %>
-      <%= link_to archivment.name, archivment %> <br>  
+    <% @archivments_done.each do |userarchivment| %>
+      <%= link_to userarchivment.archiv.name, userarchivment.archiv %> <br>  
     <% end %>
   <% end %>
 

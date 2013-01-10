@@ -13,12 +13,14 @@ Erfolg::Application.routes.draw do
   resources :archivs, :only => [:index, :show, :new,  :edit, :create, :update, :destroy] do
     member do
       post :update_vote
+      put :update_userarchivment      
       get :create_userarchivment
     end
   end
 
   resources :categories
   resources :extern
+  resources :stream
 
   # devise_for :users, :path => "usuarios", :path_names => { :sign_in => 'login', :sign_out => 'logout', :password => 'secret', :confirmation => 'verification', :unlock => 'unblock', :registration => 'register', :sign_up => 'cmon_let_me_in' }
 
