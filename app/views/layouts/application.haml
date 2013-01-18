@@ -6,7 +6,8 @@
     = stylesheet_link_tag    "application", :media => "all"
     = javascript_include_tag "jquery-1.8.3.min", "jquery.form", "application"
     = csrf_meta_tags
-  %body
+  %body{ :id => params[:controller].parameterize + "-controller" }
+
     = render :template => "layouts/navigation"
     - flash.each do |name, msg|
       = content_tag :div, msg, :class => "flash #{name}"

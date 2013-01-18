@@ -9,9 +9,9 @@ gem 'rails', '3.2.11'
   gem 'pg'
 
 # Template Engine
-  gem 'haml', '3.2.0.beta.1'
-  gem 'haml-rails'
-  gem 'html2haml'
+  gem 'haml', '3.2.0.beta.1'    # Version can be taken out when html2haml gets removed
+  gem 'haml-rails'              # Creates .haml files on rails generate
+  gem 'html2haml'               # Not needed anymore?
 
 # User Management
   gem 'devise'
