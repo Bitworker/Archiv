@@ -12,11 +12,6 @@
  *= require_tree .
 */
 
-body {
-	margin: 0px;
-	font: 14px/20px verdana;
-}
-
 .main-content {
     width: 60%;
     padding: 20px;
@@ -25,5 +20,69 @@ body {
     font-size: 12px;
     border: 1px solid lightgrey;
     margin-bottom: 20px;
-    min-height: 900px
+    min-height: 900px;
 }
+
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px; 
+  margin: 0px;
+}
+
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px; }
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px; }
+
+a {
+  color: #000;
+}
+
+a:visited {
+  color: #666; 
+}
+
+a:hover {
+  color: #fff;
+} 
+
+#notice {
+  color: green; }
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table; }
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff; 
+}
+
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square; 
+} 
