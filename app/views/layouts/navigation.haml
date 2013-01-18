@@ -1,0 +1,19 @@
+.main-nav
+  - if user_signed_in?
+    .main-nav-links
+      = link_to "User Profil", user_path(current_user), :class => is_active_link?("user")
+      |
+      = link_to "Willkommen", extern_index_path, :class => is_active_link?("extern")
+      |
+      = link_to "Adminarea", admin_index_path, :class => is_active_link?("admin")
+      |
+      = link_to "Stream", stream_index_path, :class => is_active_link?("stream")
+      .fR.logged-in-as
+        Eingeloggt als #{current_user.email}. Das bist nicht du? #{link_to "Logout", destroy_user_session_path, :method => :delete, :class => "f-bold"}
+  - else
+    .text-center.main-nav-links
+      = link_to "Registrieren", new_user_registration_path
+      |
+      = link_to "Platform Login", new_user_session_path 
+      |
+      = link_to "Facebook Login", "/auth/facebook"

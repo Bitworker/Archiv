@@ -1,0 +1,17 @@
+- title "Profilseite"
+.profil-header
+  = image_tag("http://graph.facebook.com/#{@user.username}/picture", :height => '50', :width => '50')
+  %h1
+    = @user.first_name + ", "
+    %br/
+    = @user.last_name
+%hr/
+.profil-basics
+  %h2
+    Punkte: #{@points}
+.profil-footer
+%hr/
+.profil-archivments
+  = render :partial => "user/archiv_done"
+  = render :partial => "user/archiv_need_vote"
+  = render :partial => "user/archiv_recommended"

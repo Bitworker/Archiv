@@ -1,0 +1,44 @@
+%div
+  - if @user_archivment_status == "done"
+    %h2 Du hast diesen Erfolg abgeschlossen.
+  - elsif @user_archivment_status == "recommended"
+    %h2 Du kannst diesen Erfolg noch abschließen.
+  - elsif @user_archivment_status == "need_vote"
+    %h2 Die Abstimmung, ob du diesen Erfolg abgeschlossen hast, läuft.
+
+.archiv-basics
+  %p
+    %b Name:
+    = @archiv.name
+  %p
+    %b Kategorie:
+    = @archiv.category
+  %p
+    %b Bedingungen:
+    = @archiv.terms
+  %p
+    %b Beispiel Link:
+    = @archiv.example_link
+  %p
+    %b Punkte:
+    = @archiv.points
+
+  #archiv-image
+    - if @userarchivment && @userarchivment.image.present?
+      %p
+        %b Dein Bild zum Erfolg:
+      %div
+        = image_tag @userarchivment.image_url(:thumb)
+
+- if @user_archivment_status == "need_vote" && @userarchivment.image.blank?
+  .archiv-image-upload
+    = render :partial => "archivs/image_upload", :locals => { :userarchivment => @userarchivment }
+- if @user_archivment_status == "need_vote" || @user_archivment_status == "done"
+  #raitings
+    = render :partial => "archivs/ratings", :locals => { :vote => @vote }
+    
+%br/
+- if @user_archivment_status == "recommended"
+  = link_to 'Vote-Freischaltung für diesen Erfolg', create_userarchivment_archiv_path
+  %br/
+= link_to 'Zurück', user_path(current_user)

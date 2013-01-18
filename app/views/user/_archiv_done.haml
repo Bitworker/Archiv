@@ -1,0 +1,6 @@
+.profil-archivments-done
+  %h3 Deine abgeschlossenen Erfolge
+  - if @archivments_done.present?
+    - @archivments_done.each do |userarchivment|
+      = link_to userarchivment.archiv.name, userarchivment.archiv
+      %br/

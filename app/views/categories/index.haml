@@ -1,0 +1,12 @@
+%h1 Kategorie Liste
+%table
+  %tr
+    %th Name
+  - @categories.each do |category|
+    %tr
+      %td= category.name
+      %td.admin_table_action= link_to 'Anzeigen', category
+      %td.admin_table_action= link_to 'Bearbeiten', edit_category_path(category)
+      %td.admin_table_action= link_to 'Löschen', category, confirm: 'Bist du sicher?', method: :delete
+%br/
+= link_to 'Neue Kategorie', new_category_path

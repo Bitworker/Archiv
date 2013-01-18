@@ -1,0 +1,6 @@
+.profil-archivments-recommended
+  %h3 Hast du schon diese Erfolge gesehen?
+  - if @archivments_recommended.present?
+    - @archivments_recommended.each do |archivment|
+      = link_to archivment.name, archivment
+      %br/

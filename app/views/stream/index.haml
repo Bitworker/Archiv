@@ -1,0 +1,29 @@
+- title "User Streams"
+.stream-header
+  %h1 Vote Erfolge anderer
+%hr/
+.stream-basics
+  %p
+    %b Name:
+    = @archivment.name
+  %p
+    %b Kategorie:
+    = @archivment.category
+  %p
+    %b Bedingungen:
+    = @archivment.terms
+  %p
+    %b Beispiel Link:
+    = @archivment.example_link
+  %p
+    %b Punkte:
+    = @archivment.points
+  #archiv-image
+    - if @userarchivment && @userarchivment.image.present?
+      %p
+        %b Dein Bild zum Erfolg:
+      %div
+        = image_tag @userarchivment.image_url(:thumb)
+  #raitings
+    = render :partial => "stream/ratings", :locals => { :vote => @vote }
+.profil-footer

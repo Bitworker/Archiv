@@ -1,0 +1,23 @@
+%h1 Erfolgs Liste
+%table
+  %tr
+    %th Name
+    %th Kategory
+    %th Bedingungen
+    %th Beispiel Link
+    %th punkte
+  - @archivs.each do |archiv|
+    %tr
+      %td= archiv.name
+      %td= archiv.category
+      %td= archiv.terms
+      %td= archiv.example_link
+      %td= archiv.points
+      %td.admin_table_action= link_to 'Anzeigen', archiv
+      %td.admin_table_action= link_to 'Bearbeiten', edit_archiv_path(archiv)
+      %td.admin_table_action= link_to 'Löschen', archiv, confirm: 'Bist du sicher?', method: :delete
+%br/
+= link_to 'Neuen Erfolg erstellen', new_archiv_path
+%br/
+%br/
+= link_to 'Zurück', admin_index_path

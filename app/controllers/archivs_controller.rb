@@ -102,8 +102,7 @@ class ArchivsController < ApplicationController
     @archiv = Archiv.find(params[:id])
     if @userarchivment.update_attributes(params[:userarchivment])
       respond_to do |format|
-        format.html
-        format.js
+        format.js {render :layout => false}
       end
     end
   end
@@ -114,8 +113,7 @@ class ArchivsController < ApplicationController
 
       if @userarchivment.update_attributes(:upvote => @archivment_upvote)
         respond_to do |format|
-          format.html
-          format.js
+          format.js {render :layout => false}
         end
       end
     end
@@ -125,8 +123,7 @@ class ArchivsController < ApplicationController
 
       if @userarchivment.update_attributes(:downvote => @archivment_downvote)
         respond_to do |format|
-          format.html
-          format.js
+          format.js {render :layout => false}
         end
       end
     end

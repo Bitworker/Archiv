@@ -1,4 +1,0 @@
-<%= form_for vote, :url => {:controller => "archiv", :action => "update_vote"}, :remote => true, :html => { :id => "update_vote_form" } do |f| %>
-  <%= f.submit "Upvote" %> <%= @archivment_upvote %> | 
-  <%= f.submit "Downvote" %> <%= @archivment_downvote %>
-<% end %> 

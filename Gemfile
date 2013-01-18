@@ -8,6 +8,11 @@ gem 'rails', '3.2.11'
 # Database
   gem 'pg'
 
+# Template Engine
+  gem 'haml', '3.2.0.beta.1'
+  gem 'haml-rails'
+  gem 'html2haml'
+
 # User Management
   gem 'devise'
 
