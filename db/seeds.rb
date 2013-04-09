@@ -10,11 +10,11 @@
 
 category_list = [
   [ 
-    "Reisen"
+    "1v1"
   ],[
-    "Events"
+    "3v3"
   ],[
-    "Sport"
+    "5v5"
   ]
 ]
 
@@ -26,78 +26,78 @@ end
 
 archiv_list = [
   [ 
-    "Deutschland bereisen", 
-    "Reisen",
-    "Mache ein Bild das dich in Deutschland zeigt",
-    "www.Deutschland.de",
+    "Gewinne ein mirror match", 
+    "1v1",
+    "tbd",
+    "tbd",
     10
   ],[
-    "Griechenland bereisen", 
-    "Reisen",
-    "Mache ein Bild das dich in Griechenland zeigt",
-    "www.Griechenland.de",
+    "Erreiche mehr als 10 kills", 
+    "1v1",
+    "tbd",
+    "tbd",
     25
   ],[
-    "Neuseeland bereisen", 
-    "Reisen",
-    "Mache ein Bild das dich in Neuseeland zeigt",
-    "www.Neuseeland.de",
+    "Gewinne als AP Champion gegen einen Tank", 
+    "1v1",
+    "tbd",
+    "tbd",
     80
   ],[
-    "Amerika bereisen", 
-    "Reisen",
-    "Mache ein Bild das dich in Amerika zeigt",
-    "www.Amerika.de",
+    "Gewinne mit einem AD Carry", 
+    "1v1",
+    "tbd",
+    "tbd",
     40
   ],[
-    "Frankreich bereisen", 
-    "Reisen",
-    "Mache ein Bild das dich in Frankreich zeigt",
-    "www.Frankreich.de",
-    20
+    "Gewinne mit einem AD Support", 
+    "1v1",
+    "tbd",
+    "tbd",
+    200
   ],[
-    "Luxenburg bereisen", 
-    "Reisen",
-    "Mache ein Bild das dich in Luxenburg zeigt",
-    "www.Luxenburg.de",
+    "Gewinne ohne das du stirbst", 
+    "1v1",
+    "tbd",
+    "tbd",
     20
   ],[
 
-    "Menschenmasse 2000", 
-    "Events",
-    "Mach ein Bild mit mehr als 2000 Menschen",
-    "www.events.de",
+    "Gewinne ohne das jemand aus deinem Team stirbt", 
+    "3v3",
+    "tbd",
+    "tbd",
     20
   ],[
-    "Menschenmasse 5000", 
-    "Events",
-    "Mach ein Bild mit mehr als 5000 Menschen",
-    "www.events.de",
+    "Gewinne 3x in folge", 
+    "3v3",
+    "tbd",
+    "tbd",
     40
   ],[
-    "Menschenmasse 20000", 
-    "Events",
-    "Mach ein Bild mit mehr als 20000 Menschen",
-    "www.events.de",
+    "Gewinne 5x in folge", 
+    "3v3",
+    "tbd",
+    "tbd",
     60
   ],[
-    "Menschenmasse 50000", 
-    "Events",
-    "Mach ein Bild mit mehr als 50000 Menschen",
-    "www.events.de",
+    "Gewinne 10x in folge", 
+    "3v3",
+    "tbd",
+    "tbd",
     100
   ],[
 
-    "1 Bundesliga", 
-    "Sport",
-    "Mach ein Bild von einem Spiel der 1sten Bundesliga aus einem Stadion",
-    "www.sport.de",
+    "Gewinne 3x in folge", 
+    "5v5",
+    "tbd",
+    "tbd",
     50
   ],[
-    "2 Bundesliga", 
-    "Sport",
-    "Mach ein Bild von einem Spiel der 2tn Bundesliga aus einem Stadion",
-    "www.sport.de",
+    "Gewinne 5x in folge", 
+    "5v5",
+    "tbd",
+    "tbd",
     25
   ]
 ]
